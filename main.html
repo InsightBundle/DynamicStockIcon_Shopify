@@ -1,0 +1,44 @@
+{% if product.available %}
+
+<div class="instock_ready"> 
+    <span class="icon--ready"></span> 
+    <span>Available, ready to ship</span> 
+  </div> 
+  <style> 
+    .instock_ready { 
+      display: flex; 
+      flex-wrap: nowrap; 
+      align-items: center; 
+    } 
+    .icon--ready { 
+      position: relative; 
+      width: 20px; 
+      height: 20px; 
+      margin-right: 10px; 
+    } 
+    .icon--ready:after,  .icon--ready:before { 
+        background: #65b18b; 
+        width: 10px; 
+        height: 10px; 
+        border-radius: 10px; 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        content: ""; 
+        margin: 5px; 
+    } 
+    @keyframes inventory-pulse{ 
+      0%{ 
+        opacity:0.5; 
+      } 
+      to{ 
+        transform:scale(3.5); 
+        opacity:0; 
+      } 
+    } 
+    .icon--ready:before { 
+        animation: inventory-pulse 2s linear infinite; 
+    } 
+  </style> 
+
+  {% endif %}
